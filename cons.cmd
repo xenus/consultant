@@ -27,7 +27,7 @@ ncftpput -v -P 9147 -f "%_FolderPath%_tmp\ftfill.txt" FTPSTT "%_FolderPath%_tmp\
 echo  * get stat
 START /W cons.exe /usr
 if exist "%FolderPath%RECEIVE\*.usr" (
-  copy /V /Y "%FolderPath%RECEIVE\*.usr" "%_FolderPath%_tmp\"
+  copy /V /Y "%FolderPath%RECEIVE\*.usr" "%_FolderPath%_tmp\" >Nul
   ) else (echo.[!]ERROR: Can't find USR file&GOTO :ENDStep02)
 echo  * send stat
 cd "%_FolderPath%"
@@ -56,7 +56,7 @@ exit /b /0
   set /a DT_int_ex=%DT_int%-2000000
 exit /b /0
 
-:_init_frp
+:_init_ftp
   set _ftp_line01="host 91.208.84.68"
   set _ftp_line02="user cons"
   set _ftp_line03=":s:s$i@@@x@@@x@@@x/ot@x:x@!"
